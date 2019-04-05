@@ -24,7 +24,7 @@
   <header>
     <ul class="nav nav-tabs">
       <li class="nav-item">
-        <a class="nav-link active">Home</a>
+        <a class="nav-link" href="/">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/geomap">GeoMap</a>
@@ -33,7 +33,7 @@
         <a class="nav-link" href="/radar">Radar</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/scatter">Scatter</a>
+        <a class="nav-link active">Scatter</a>
       </li>
     </ul>
   </header>
@@ -42,7 +42,7 @@
       <div class="row">
           <div class="col-xs-12 col-md-12"><h3 id="title" class="text-center">Happiness</h3></div>
       </div>
-      <div class="row" id="factors">
+      <div class="row" id="scatter">
       </div>
     </div>
   </main>
@@ -50,7 +50,7 @@
   <!-- D3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/scatter.js') }}"></script>
 
 </body>
 

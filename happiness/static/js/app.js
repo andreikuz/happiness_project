@@ -66,3 +66,7 @@ function handleMouseOut() {
     d3.select(this).classed("border-danger", true);
     d3.select(this).classed("text-white bg-warning", false);
 };
+
+d3.json("/api/v1.0/factors").then(data => {
+    console.log(data);
+});

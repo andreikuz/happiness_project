@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, jsonify
 import pymongo
 import pandas as pd
 import json
+from factors import factors_data
 
 ##### Initialize MongoDB #####
 # Create connection variable
@@ -25,7 +26,15 @@ def init_db():
     data_json = json.loads(happiness_df.to_json(orient='records'))
     # Removes collection if available to remove duplicates
     db.happiness.remove()
-    # Insert Data into MongoDB
+    db.factors.remove()
+
+    # Call script to load up factors
+    results = factors_data()
+    
+    # Insert factors into mongodb
+    db.factors.insert_many(results)
+
+    # Insert happiness data into MongoDB
     db.happiness.insert_many(data_json)
 
 ##### Initialize Flask #####
@@ -58,13 +67,15 @@ def factors():
     """Return a list of factors"""
 
     # Use Pandas to perform the mongodb
-    sample = [
-        {"title": "sample1", "desc": "blah blah"},
-        {"title": "sample2", "desc": "blah blah blah"}
-    ]
+    keys = list(db.factors.find_one())[1:]
+    factors_data = db.factors.find()
+    # keys = ("country", "year")
+    results = []
+    for row in factors_data:
+        results.append({k: row[k] for k in keys})
 
     # Return factors in json
-    return jsonify(sample)
+    return jsonify(results)
 
 # API for factors: title + description
 @app.route("/api/v1.0/happinessdata", methods=['GET', 'POST'])
@@ -81,7 +92,7 @@ def happinessdata():
         results.append({k: row[k] for k in keys})
 
     # Return the happiness data in json
-    return jsonify(results)
+    return jsonify(keys)
 
 
 # Setup MongoDB when Flask launches

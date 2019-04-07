@@ -37,12 +37,26 @@
       </li>
     </ul>
   </header>
-  <main class="bg">
+  <main>
     <div class="container">
       <div class="row">
           <div class="col-xs-12 col-md-12"><h3 id="title" class="text-center">Happiness</h3></div>
       </div>
+      <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12" id="yearDD"><span>Year: </span></div>
+      </div>
       <div class="row" id="scatter">
+      </div>
+      <div class="row text-center">
+          <div class="col-xs-12 col-sm-12 col-md-12" id="xAxisDD"><span>X-Axis: </span></div>
+      </div>
+      <div class="row buffer">
+          <div class="col-xs-12 col-sm-6 col-md-6" id="colorDD"><span>Color: </span></div>
+          <div class="col-xs-12 col-sm-6 col-md-6 text-center" id="sizeDD"><span>Size: </span></div>
+      </div>
+      <div class="row buffer">
+          <div class="col-xs-12 col-sm-6 col-md-6" id="colorLegend"></div>
+          <div class="col-xs-12 col-sm-6 col-md-6 text-center" id="sizeLegend"></div>
       </div>
     </div>
   </main>
@@ -50,6 +64,7 @@
   <!-- D3 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.js"></script>
   <script src="{{ url_for('static', filename='js/scatter.js') }}"></script>
 
 </body>

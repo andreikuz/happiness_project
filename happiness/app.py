@@ -92,7 +92,7 @@ def happinessdata():
         results.append({k: row[k] for k in keys})
 
     # Return the happiness data in json
-    return jsonify(keys)
+    return jsonify(results)
 
 
 # Setup MongoDB when Flask launches

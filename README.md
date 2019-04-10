@@ -1,1 +1,1 @@
-# happiness_project
+# Happiness

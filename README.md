@@ -1,15 +1,7 @@
 # Happiness
 
 ## Introduction
-The purpose of this project is to measure happiness over a span of six years based on  seven different factors, including:
-
-- Suicide
-- GPI score
-- Life Ladder
-- GDP per capita
-- Freedom to Make Life Choices
-- Generosity
-- Confidence in National Government
+The purpose of this project is to measure happiness over a span of six years based on seven variables, including: Suicide, GPI score, Life Ladder, GDP per capita, Freedom to Make Life Choices, Generosity, Confidence in National Government.
 
 ## Links to Datasets
 * [World Happiness Report](http://worldhappiness.report/ed/2019/)
@@ -21,31 +13,16 @@ The purpose of this project is to measure happiness over a span of six years bas
 * Python
 * JavaScript
 * HTML
-* D3
+* CSS, D3
 * MongoDB
 * Jupyter, Pandas
 * Charts.js
 
 
 ## Features
-Interactive visualizations that can be filtered by counttry and year.
+Interactive visualizations (scatter plot, map, radar chart) that can be filtered by country and year.
 
-## Code Example
-
-
-## Installation
-
-
-## API Reference
-
-
-## Tests
-
-
-## How to Use
-
-
-## Contribute
+__insert screenshots of graphs here__
 
 
 ## Credits

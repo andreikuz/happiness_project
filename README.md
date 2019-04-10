@@ -1,5 +1,7 @@
 # Happiness
 
+## Link to app: 
+
 ## Introduction
 The purpose of this project is to measure happiness over a span of six years based on seven variables, including: Suicide, GPI score, Life Ladder, GDP per capita, Freedom to Make Life Choices, Generosity, Confidence in National Government.
 
@@ -16,6 +18,7 @@ The purpose of this project is to measure happiness over a span of six years bas
 * CSS, D3
 * MongoDB
 * Jupyter, Pandas
+* Heroku
 * Charts.js
 
 

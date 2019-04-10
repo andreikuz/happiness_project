@@ -1,21 +1,19 @@
 # Happiness
-We will be combining three datasets that measure happiness over a span of six years based on different factors.
 
-## Motivation
+## Introduction
+The purpose of this project is to measure happiness over a span of six years based on different factors.
 
-
-## Build Status
-
-
-## Code Style
-
-
-## screenshots
+## Links to Datasets
+* [World Happiness Report](http://worldhappiness.report/ed/2019/)
+* [WHO Suicide Statistics](https://www.kaggle.com/szamil/who-suicide-statistics)
+* [Global Peace Index](https://www.kaggle.com/kretes/gpi2008-2016)
 
 
-## Tech/Framework Used
-### Built With
+## Technologies
+* Python
 * JavaScript
+* D3
+* MongoDB
 * Charts.js
 
 
@@ -45,5 +43,3 @@ We will be combining three datasets that measure happiness over a span of six ye
 2. Kevin A.
 3. Andrei K.
 4. Cossella B.
-
-## License

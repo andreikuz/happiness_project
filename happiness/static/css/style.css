@@ -25,3 +25,8 @@ header, main {
 #title {
   margin-bottom: 10px;
 }
+
+.buffer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

@@ -13,14 +13,14 @@
   font-weight: bold;
   fill: #000;
   transition: fill 0.3s ease-out;
-  text-anchor: middle;
+  /* text-anchor: middle; */
 }
 
 .inactive {
   font-weight: lighter;
   fill: #c9c9c9;
   transition: fill 0.3s ease-out;
-  text-anchor: middle;
+  /* text-anchor: middle; */
 }
 
 .inactive:hover {
@@ -29,14 +29,15 @@
 }
 
 /* font size dependent on radius, see app.js */
-.stateText {
+.countryText {
   font-family: sans-serif;
-  fill: #fff;
-  text-anchor: middle;
+  font-size: 8px;
+  fill: #000;
+  text-anchor: right;
+  opacity: 0.6;
 }
 
-.stateCircle {
-  fill: #89bdd3;
+.countryCircle {
   stroke: #e3e3e3;
 }
 

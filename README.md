@@ -14,16 +14,17 @@ The purpose of this project is to measure happiness from 2011-2016 based on seve
 ## Technologies
 * Python
 * JavaScript
+* D3
 * HTML
-* CSS, D3
+* CSS
 * MongoDB
-* Jupyter, Pandas
+* Jupyter Notebook
 * Heroku
 * Charts.js
 
 
 ## Features
-Interactive visualizations (scatter plot, map, radar chart) that can be filtered by country and year.
+Interactive visualizations (scatter plot, map, radar chart) that can be filtered by variable, year and country.
 
 _insert screenshots of graphs here_
 

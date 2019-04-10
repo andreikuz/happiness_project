@@ -22,7 +22,7 @@ The purpose of this project is to measure happiness over a span of six years bas
 ## Features
 Interactive visualizations (scatter plot, map, radar chart) that can be filtered by country and year.
 
-__insert screenshots of graphs here__
+_insert screenshots of graphs here_
 
 
 ## Credits

@@ -14,6 +14,9 @@ We will be combining three datasets that measure happiness over a span of six ye
 
 
 ## Tech/Framework Used
+### Built With
+* JavaScript
+* Charts.js
 
 
 ## Features

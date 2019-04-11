@@ -5,22 +5,22 @@ import pandas as pd
 # Returns the result merged dataframes after cleaning the data.
 def happiness_data():
     # Load happiness data file into dataframe
-    happy_df = pd.read_csv("./data/happiness.csv")
+    happy_df = pd.read_csv("./data/happiness.csv", encoding='utf-8-sig')
     # Rename column names: country, year
     happy_df = happy_df.rename(columns= {'Country name': 'country', 'Year':'year'})
     # Load GPI data file into dataframe.  melt year columns into year row
     cols = ['country'] + ["score_"+str(i) for i in range(2011,2017)]
-    gpi_df = pd.read_csv("./data/gpi.csv", skiprows=0, usecols=cols)
+    gpi_df = pd.read_csv("./data/gpi.csv", skiprows=0, usecols=cols, encoding='utf-8-sig')
     gpi_df = pd.melt(gpi_df, id_vars=["country"], var_name="Year", value_name="GPI")
     # replace score_ with empty string, so the year value consist of only the year value
     gpi_df["Year"] = gpi_df["Year"].str.replace("score_", "")
     gpi_df = gpi_df.rename(columns = {'Year':'year'})
     # create new gpi file with the melted columns and read as the new dataframe
-    gpi_df.to_csv("./data/gpiData.csv")
-    gpi_df = pd.read_csv("./data/gpiData.csv")
+    gpi_df.to_csv("./data/gpiData.csv", encoding='utf-8-sig')
+    gpi_df = pd.read_csv("./data/gpiData.csv", encoding='utf-8-sig')
     del gpi_df['Unnamed: 0']
     # Load the suicide file into a dataframe
-    suicide_df = pd.read_csv("./data/suicide.csv")
+    suicide_df = pd.read_csv("./data/suicide.csv", encoding='utf-8-sig')
     # drop the empty values
     suicide_df = suicide_df.dropna()
     # Filter the suicide data by year: we're using 2011-2016

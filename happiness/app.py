@@ -1,15 +1,15 @@
 # import modules
+import os
 from flask import Flask, render_template, redirect, jsonify
 import pymongo
 import pandas as pd
 import json
 from factors import factors_data
 from script import happiness_data
-from config import MONGOLAB_URI
 
 ##### Initialize MongoDB #####
 # Create connection variable
-conn = MONGOLAB_URI
+conn = os.environ.get('MONGO_URL')
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 # Connect to a database. Will create one if not already available.

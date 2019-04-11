@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect, jsonify
 import pymongo
 import pandas as pd
 import json
+import dnspython
 from factors import factors_data
 from script import happiness_data
 
@@ -103,5 +104,4 @@ setup_app(app)
 # Run main app
 if __name__ == "__main__":
     app.run(debug=True)
-    
     

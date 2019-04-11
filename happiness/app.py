@@ -5,10 +5,11 @@ import pandas as pd
 import json
 from factors import factors_data
 from script import happiness_data
+from config import MONGOLAB_URI
 
 ##### Initialize MongoDB #####
 # Create connection variable
-conn = 'mongodb://localhost:27017'
+conn = MONGOLAB_URI
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 # Connect to a database. Will create one if not already available.
@@ -102,5 +103,4 @@ setup_app(app)
 # Run main app
 if __name__ == "__main__":
     app.run(debug=True)
-    
     

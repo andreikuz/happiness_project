@@ -20,15 +20,10 @@ function filterData() {
   
   console.log(filteredData);
   Object.entries(filteredData[0]).forEach(([key, value])=>{
-    // scale suicides # to 1000
-    if (key === "suicides_no") {
-      value = value/1000;
-    };
     // add values and labels into their arrays if not country, year
-    if (key != "country"){
-      if (key != "year"){
+    if((key != "country") && (key != "year")){
         labels.push(key);
-        values.push(value);}
+        values.push(value);
     }
   });
 };
@@ -80,8 +75,7 @@ function createDropDown() {
 }
 
 function createChart() {
-  //clear html
-  // document.getElementById("radar").innerHTML("");
+  // Create radar chart
   new Chart(document.getElementById("radar"), {
       type: 'radar',
       data: {

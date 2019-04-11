@@ -1,8 +1,8 @@
 #  Store lists of factor titles and descriptions
 
 factors = [
-    {"title": "Suicide",
-    "desc": "measured by the number of suicides in each country"},
+    {"title": "Suicide Rate",
+    "desc": "measured by the number of suicides divided by population per 100k in each country."},
     {"title": "Global Peace Index", 
     "desc": "measured by the relative position of nations' and regions' level of peacefulness"},
     {"title": "Happiness", 

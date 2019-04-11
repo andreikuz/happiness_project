@@ -3,10 +3,10 @@
  */
 
 // Initialize Global Params
-var chosenXAxis = "Log GDP per capita";  // Default initial x-axis
-var chosenYAxis = "Life Ladder";  // Default initial y-axis
-var chosenColor = "suicides_no";  // Default initial color
-var chosenSize = "GPI";  // Default initial size
+var chosenXAxis = "Gross Domestic Product";  // Default initial x-axis
+var chosenYAxis = "Happiness";  // Default initial y-axis
+var chosenColor = "Suicide Rate";  // Default initial color
+var chosenSize = "Global Peace Index";  // Default initial size
 var chosenYear = 2015; // Default initial Year
 
 var happinessMap = null; // Load data: from API json

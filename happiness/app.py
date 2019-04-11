@@ -4,6 +4,7 @@ import pymongo
 import pandas as pd
 import json
 from factors import factors_data
+from script import happiness_data
 
 ##### Initialize MongoDB #####
 # Create connection variable
@@ -13,27 +14,23 @@ client = pymongo.MongoClient(conn)
 # Connect to a database. Will create one if not already available.
 db = client.happiness_db
 
-# create temp df to store into mongodb
+# function loads happiness data in dataframe to store into mongodb
 def load_data():
-    temp_df = pd.read_csv("../../merged_data.csv")
-    return temp_df
+    return happiness_data()
 
 def init_db():
     # Initialize ETL into MongoDB
+    # Call script to load up factors in json
+    factors_results = factors_data()
     # load extracted & transformed data into pandas df
     happiness_df = load_data()
     # Convert dataframe to json
     data_json = json.loads(happiness_df.to_json(orient='records'))
-    # Removes collection if available to remove duplicates
-    db.happiness.remove()
+    # Removes collections if available to prevent duplicates
     db.factors.remove()
-
-    # Call script to load up factors
-    results = factors_data()
-    
+    db.happiness.remove()
     # Insert factors into mongodb
-    db.factors.insert_many(results)
-
+    db.factors.insert_many(factors_results)
     # Insert happiness data into MongoDB
     db.happiness.insert_many(data_json)
 

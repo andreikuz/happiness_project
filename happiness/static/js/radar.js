@@ -1,14 +1,22 @@
-var dataMap = null;
-var countries = [];
+//var dataMap = null;
+// create rank data
+var rankData = []; // Load in d3.json
+var countries = []; // Load in d3.json
 var years = [2011, 2012, 2013, 2014, 2015, 2016];
 var country = "United States of America";
-var year = 2012;
+var year = 2015;
 // labels and values array for radar chart data
-var labels = [];
+var labels = ['Suicide Rate',
+              'Global Peace Index',
+              'Happiness',
+              'Gross Domestic Product',
+              'Freedom',
+              'Generosity',
+              'Trust in Government'];
 var values = [];
 
 function filterData() {
-  //reset arrays
+  // reset values arrays
   labels = [];
   values = [];
   // filter data from the chosen year, country
@@ -16,9 +24,8 @@ function filterData() {
     var result = (rowData.country === country) && (rowData.year === year) ; 
     return result};
 
-  var filteredData = dataMap.filter(selectFilter);
-  
-  console.log(filteredData);
+  var filteredData = rankData.filter(selectFilter);
+  // Update labels and values from filtered Data
   Object.entries(filteredData[0]).forEach(([key, value])=>{
     // add values and labels into their arrays if not country, year
     if((key != "country") && (key != "year")){
@@ -108,10 +115,45 @@ d3.json('/api/v1.0/happinessdata').then(data => {
   data.forEach((d)=>{
     countries.push(d.country);
   });
-  // create distinct country list
+  // create distinct country array
   countries = [...new Set(countries.map(d=>d))].sort();
   // Create Drop downs
   createDropDown();
+  
+  // loop through years
+  years.forEach(y => {
+    // Initialize zeros data by country and year
+    countries.forEach(c => {
+      // add data into rankData
+      rankData.push({
+        'country': c,
+        'year': y
+      })
+    });
+
+    // filter data by year
+    function yearFilter(rowData) {
+      return (rowData.year === y);
+    };
+    // filter data by year
+    var yearData = dataMap.filter(yearFilter);
+    // Sort rank by Suicide Rate & assign rank value
+    labels.forEach(l => {
+      freedomRank = yearData.sort((a, b) => parseFloat(b[l]) - parseFloat(a[l]));
+      freedomRank.forEach((d,i) => {
+        // Update freedom rank within rankData
+        rankData.forEach(r => {
+          if((r.country === d.country) &&(r.year === d.year)) {
+            if(d === null)
+              r[l] = 0;
+            else
+              r[l] = countries.length - i;
+          }
+        });
+      });
+    });
+
+  });
 
   // create inital chart
   filterData();

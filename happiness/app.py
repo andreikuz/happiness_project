@@ -21,7 +21,7 @@ def create_tables():
         DROP TABLE IF EXISTS factors;
         CREATE TABLE factors (
             factors_id SERIAL PRIMARY KEY,
-            title TEXT NOT NULL,
+            title TEXT UNIQUE NOT NULL,
             descr TEXT NOT NULL
         )
         """,

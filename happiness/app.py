@@ -7,15 +7,15 @@ from factors import factors_data
 from script import happiness_data
 
 ##### Initialize Database #####
-# Create PostgreSQL connection
-# DATABASE_URL = os.environ['DATABASE_URL']
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+Create PostgreSQL connection
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-conn=psycopg2.connect(
-  database="happiness_db",
-  user="bdthai81",
-  password="Ethan"
-)
+# conn=psycopg2.connect(
+#   database="happiness_db",
+#   user="",
+#   password=""
+# )
 
 cur = conn.cursor()
 

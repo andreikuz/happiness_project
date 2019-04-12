@@ -11,12 +11,6 @@ from script import happiness_data
 # DATABASE_URL = os.environ['DATABASE_URL']
 # conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
-conn=psycopg2.connect(
-  database="happiness_db",
-  user="bdthai81",
-  password="Ethan"
-)
-
 cur = conn.cursor()
 
 # function creates factors and happiness table

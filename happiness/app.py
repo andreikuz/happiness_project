@@ -21,7 +21,7 @@ def create_tables():
         DROP TABLE IF EXISTS factors;
         CREATE TABLE factors (
             factors_id SERIAL PRIMARY KEY,
-            title TEXT UNIQUE NOT NULL,
+            title TEXT NOT NULL,
             descr TEXT NOT NULL
         )
         """,
@@ -53,9 +53,9 @@ def init_db():
     # Call script to load up factors
     factors_results = factors_data()
     # Insert factors data
-    factors_sqlInsert = "INSERT INTO factors(title, descr) VALUES(%s, %s)"
+    factors_sqlInsert = f"INSERT INTO factors(title, descr) VALUES {factors_results}"
     # execute the INSERT statement
-    cur.executemany(factors_sqlInsert, factors_results)
+    cur.executemany(factors_sqlInsert)
     # commit the changes to the database
     conn.commit()
     # load extracted & transformed data into pandas df

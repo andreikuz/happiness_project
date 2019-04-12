@@ -9,8 +9,8 @@ from script import happiness_data
 
 ##### Initialize MongoDB #####
 # Create connection variable
-conn = os.environ.get('MONGODB_URI')
-# conn = 'mongodb://localhost:27017'
+# conn = os.environ.get('MONGODB_URI')
+conn = 'mongodb://localhost:27017'
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 # Connect to a database. Will create one if not already available.

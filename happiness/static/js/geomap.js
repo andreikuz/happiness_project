@@ -1,4 +1,6 @@
 var link = "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json";
+/* add for heroku */
+var API_KEY = process.env.MAP_API_KEY;
 
 function setBins(inputData) {
     inputData.sort(function(a, b){return a-b});

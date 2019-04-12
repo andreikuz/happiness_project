@@ -26,7 +26,9 @@ The purpose of this project is to measure happiness from 2011-2016 based on seve
 ## Features
 Interactive visualizations (scatter plot, map, radar chart) that can be filtered by variable, year and country.
 
-_insert screenshots of graphs here_
+![Scatter Plot](/happiness_project/2014_scatter_README.png "Scatter Plot")
+
+![Radar Chart](/happiness_project/USA_radarchart_README.png "Radar Chart")
 
 
 ## Credits

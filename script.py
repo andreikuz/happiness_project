@@ -127,5 +127,5 @@ def happiness_data():
     # Filter data for factors data
     merged_df = merged_df[['country', 'year', 'Suicide Rate', 'Global Peace Index', 'Happiness',
                     'Gross Domestic Product', 'Freedom', 'Generosity',
-                    'Trust in Government']]
+                    'Trust in Government']].fillna(value=0)
     return merged_df

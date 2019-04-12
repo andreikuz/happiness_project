@@ -393,6 +393,7 @@ function init() {
 
 // Load data from API and then launch init() to create chart
 d3.json("/api/v1.0/happinessdata").then(data => {
+    console.log(data);
     // Load data into happinessData
     happinessMap = data;
     // Filter the happiness data by year and store into happinessData

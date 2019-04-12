@@ -8,8 +8,14 @@ from script import happiness_data
 
 ##### Initialize Database #####
 # Create PostgreSQL connection
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# DATABASE_URL = os.environ['DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+conn=psycopg2.connect(
+  database="happiness_db",
+  user="bdthai81",
+  password="Ethan"
+)
 
 cur = conn.cursor()
 
@@ -53,9 +59,9 @@ def init_db():
     # Call script to load up factors
     factors_results = factors_data()
     # Insert factors data
-    factors_sqlInsert = f"INSERT INTO factors(title, descr) VALUES {factors_results}"
+    factors_sqlInsert = "INSERT INTO factors(title, descr) VALUES(%s, %s)"
     # execute the INSERT statement
-    cur.executemany(factors_sqlInsert)
+    cur.executemany(factors_sqlInsert, factors_results)
     # commit the changes to the database
     conn.commit()
     # load extracted & transformed data into pandas df

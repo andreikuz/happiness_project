@@ -1,7 +1,7 @@
 #  Store lists of factor titles and descriptions
 
 # Tuples of (title, desc)
-factors = """
+factors = [
     ("Suicide Rate", "measured by the number of suicides divided by population per 100k in each country"),
     ("Global Peace Index", "measured by the relative position of nations' and regions' level of peacefulness"),
     ("Happiness", "measured by satisfaction and happiness of life"),
@@ -10,7 +10,7 @@ factors = """
     ("Generosity", "measured by recent donations to charity"),
     ("Trust in Government", "measured by a perceived absence of corruption in government and business"),
     ("Years", "2011, 2012, 2013, 2014, 2015, 2016")
-    """
+]
 
 # Define function to pass back the factors data
 def factors_data():

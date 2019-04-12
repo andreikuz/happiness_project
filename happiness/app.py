@@ -102,7 +102,7 @@ def scatter():
 @app.route("/api/v1.0/factors", methods=['GET', 'POST'])
 def factors():
     """Return a list of factors"""
-    cur.execute("SELECT title, descr FROM factors")
+    cur.execute("SELECT DISTINCT title, descr FROM factors")
     rows = cur.fetchall()
     results = []
     for row in rows:

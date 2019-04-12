@@ -31,8 +31,8 @@ def init_db():
     # Convert dataframe to json
     data_json = json.loads(happiness_df.to_json(orient='records'))
     # Removes collections if available to prevent duplicates
-    db.factors.remove()
-    db.happiness.remove()
+    # db.factors.remove()
+    # db.happiness.remove()
     # Insert factors into mongodb
     db.factors.insert_many(factors_results)
     # Insert happiness data into MongoDB

@@ -9,11 +9,14 @@ from script import happiness_data
 
 ##### Initialize MongoDB #####
 # Create connection variable
-conn = os.environ.get('MONGO_URL')
+conn = os.environ.get('MONGODB_URI')
+# conn = 'mongodb://localhost:27017'
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 # Connect to a database. Will create one if not already available.
 db = client.happiness_db
+# db = client.get_default_database()
+# db = client.test
 
 # function loads happiness data in dataframe to store into mongodb
 def load_data():
@@ -103,5 +106,4 @@ setup_app(app)
 # Run main app
 if __name__ == "__main__":
     app.run(debug=True)
-    
     

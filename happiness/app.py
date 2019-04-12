@@ -1,37 +1,27 @@
 # import modules
 import os
-from flask import Flask, render_template, redirect, jsonify, request
-# import pymongo
-# import pandas as pd
+from flask import Flask, render_template, jsonify
 import psycopg2
 import json
 from factors import factors_data
 from script import happiness_data
-# from flask_sqlalchemy import SQLAlchemy
 
-DATABASE_URL = os.environ['DATABASE_URL']
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
-# conn=psycopg2.connect(
-#   database="happiness_db",
-#   user="bdthai81",
-#   password="Ethan"
-# )
+##### Initialize Database #####
+# Create PostgreSQL connection
+# DATABASE_URL = os.environ['DATABASE_URL']
+# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+
+conn=psycopg2.connect(
+  database="happiness_db",
+  user="bdthai81",
+  password="Ethan"
+)
 
 cur = conn.cursor()
 
-##### Initialize MongoDB #####
-# Create connection variable
-# conn = os.environ.get('MONGODB_URI')
-# conn = 'mongodb://localhost:27017'
-# Pass connection to the pymongo instance.
-# client = pymongo.MongoClient(conn)
-# Connect to a database. Will create one if not already available.
-# db = client.happiness_db
-# db = client.get_default_database()
-# db = client.test
-
-# function loads happiness data in dataframe to store into mongodb
+# function creates factors and happiness table
 def create_tables():
+    # drop table if exists and then create table
     commands = (
         """
         DROP TABLE IF EXISTS factors;
@@ -63,10 +53,10 @@ def create_tables():
     conn.commit()
 
 def init_db():
-    # Define Database
+    # Define Database tables
     create_tables()
-    # Initialize ETL into MongoDB
-    # Call script to load up factors in json
+    # Initialize ETL into PostgreSQL
+    # Call script to load up factors
     factors_results = factors_data()
     # Insert factors data
     factors_sqlInsert = "INSERT INTO factors(title, descr) VALUES(%s, %s)"
@@ -86,19 +76,9 @@ def init_db():
                                  row['Global Peace Index'], row['Happiness'], row['Gross Domestic Product'],
                                  row['Freedom'], row['Generosity'], row['Trust in Government']))
     # execute the INSERT statement
-    # print(happiness_values)
     cur.executemany(happiness_sqlInsert, happiness_values)
     # commit the changes to the database
     conn.commit()
-    # Convert dataframe to json
-    # data_json = json.loads(happiness_df.to_json(orient='records'))
-    # Removes collections if available to prevent duplicates
-    # db.factors.remove()
-    # db.happiness.remove()
-    # Insert factors into mongodb
-# db.factors.insert_many(factors_results)
-    # Insert happiness data into MongoDB
-# db.happiness.insert_many(data_json)
 
 ##### Initialize Flask #####
 # Create an instance of our Flask app.
@@ -135,14 +115,6 @@ def factors():
         results.append({"title": row[0],
                         "desc": row[1]})
 
-    # Use Pandas to perform the mongodb
-    # keys = list(db.factors.find_one())[1:]
-    # factors_data = db.factors.find()
-    # # keys = ("country", "year")
-    # results = []
-    # for row in factors_data:
-    #     results.append({k: row[k] for k in keys})
-
     # Return factors in json
     return jsonify(results)
 
@@ -166,19 +138,8 @@ def happinessdata():
                         "Freedom": row[6],
                         "Generosity": row[7],
                         "Trust in Government": row[8]})
-    # Query data from mongoDB
-    # {} = "select * from happiness"
-    # Get the column names and then drop the _id
-    # keys = list(db.happiness.find_one())[1:]
-    # happiness_data = db.happiness.find()
-    # # keys = ("country", "year")
-    # results = []
-    # for row in happiness_data:
-    #     results.append({k: row[k] for k in keys})
-
     # Return the happiness data in json
     return jsonify(results)
-
 
 # Setup MongoDB when Flask launches
 def setup_app(app):

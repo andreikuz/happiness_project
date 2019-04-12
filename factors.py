@@ -13,7 +13,6 @@ factors = [
 ]
 
 # Define function to pass back the factors data
-
 def factors_data():
     return factors
 

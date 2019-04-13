@@ -5,7 +5,7 @@ import psycopg2
 import json
 from factors import factors_data
 from script import happiness_data
-from cryptoapi import Cryptor
+from cryptor import Cryptor
 import binascii 
 
 ##### Initialize Database #####

@@ -17,9 +17,11 @@ The purpose of this project is to measure happiness from 2011-2016 based on seve
 * D3
 * HTML
 * CSS
-* MongoDB
+* Leaflet
+* Bootstrap
 * Jupyter Notebook
 * Heroku
+* PostGres
 * Charts.js
 
 

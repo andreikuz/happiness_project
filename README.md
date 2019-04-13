@@ -1,7 +1,7 @@
 # Happiness
 
 ## Introduction
-The purpose of this project is to measure happiness from 2011-2016 based on seven variables, including: Suicide, Global Peace Index, Happiness, Gross Domestic Product, Freedom, Generosity, Trust in Government.
+The purpose of this project is to measure happiness from 2011-2015 based on seven variables, including: Suicide, Global Peace Index, Happiness, Gross Domestic Product, Freedom, Generosity, Trust in Government.
 
 ## Link to app: https://bdthai81-happiness.herokuapp.com
 

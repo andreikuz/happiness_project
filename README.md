@@ -3,7 +3,7 @@
 ## Introduction
 The purpose of this project is to measure happiness from 2011-2016 based on seven variables, including: Suicide, Global Peace Index, Happiness, Gross Domestic Product, Freedom, Generosity, Trust in Government.
 
-## Link to app: 
+## Link to app: https://bdthai81-happiness.herokuapp.com
 
 ## Links to Datasets
 * [World Happiness Report](http://worldhappiness.report/ed/2019/)
@@ -17,9 +17,11 @@ The purpose of this project is to measure happiness from 2011-2016 based on seve
 * D3
 * HTML
 * CSS
-* MongoDB
+* Leaflet
+* Bootstrap
 * Jupyter Notebook
 * Heroku
+* PostGres
 * Charts.js
 
 

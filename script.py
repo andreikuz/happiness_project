@@ -29,13 +29,13 @@ def happiness_data():
     suicide2013 = suicide_df.loc[suicide_df['year'] == 2013]
     suicide2014 = suicide_df.loc[suicide_df['year'] == 2014]
     suicide2015 = suicide_df.loc[suicide_df['year'] == 2015]
-    suicide2016 = suicide_df.loc[suicide_df['year'] == 2016]
+    # suicide2016 = suicide_df.loc[suicide_df['year'] == 2016]
     # Merge the filter data frames into one dataframe call suicide range
     suicide_range = suicide2011.append(suicide2012)
     suicide_range = suicide_range.append(suicide2013)
     suicide_range = suicide_range.append(suicide2014)
     suicide_range = suicide_range.append(suicide2015)
-    suicide_range = suicide_range.append(suicide2016)
+    # suicide_range = suicide_range.append(suicide2016)
     # drop empty values
     suicide_range = suicide_range.dropna()
     # group suicide range by country and year, then flattne data frame with reset index

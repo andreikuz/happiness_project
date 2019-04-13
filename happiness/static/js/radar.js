@@ -2,7 +2,7 @@
 // create rank data
 var rankData = []; // Load in d3.json
 var countries = []; // Load in d3.json
-var years = [2011, 2012, 2013, 2014, 2015, 2016];
+var years = [2011, 2012, 2013, 2014, 2015];
 var country = "United States of America";
 var year = 2015;
 // labels and values array for radar chart data

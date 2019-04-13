@@ -9,7 +9,7 @@ factors = [
     ("Freedom", "measured by the freedom to make life choices"),
     ("Generosity", "measured by recent donations to charity"),
     ("Trust in Government", "measured by a perceived absence of corruption in government and business"),
-    ("Years", "2011, 2012, 2013, 2014, 2015, 2016")
+    ("Years", "2011, 2012, 2013, 2014, 2015")
 ]
 
 # Define function to pass back the factors data

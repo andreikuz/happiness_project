@@ -14,7 +14,7 @@ var happinessData = null;  // Load data: filter happinessMap data by year
 var featuresXAxis = null; // Load data from API: array of features for x-axis
 var featuresColor = null; // Load data from API: array of features for color
 var featuresSize = null; // Load data from API: array of features for size
-var years = [2011, 2012, 2013, 2014, 2015, 2016]; // Array of year options
+var years = [2011, 2012, 2013, 2014, 2015]; // Array of year options
 var category = "country"; // non numeric feature
 
  // Define SVG area dimensions
@@ -43,7 +43,7 @@ function createColorLegend() {
     d3.select("#colorLegend").append("svg")
         .append("g")
             .attr("class", "legendLinear")
-            .attr("transform", `translate(${20}, 0)`);
+            .attr("transform", `translate(${20}, 5)`);
     let legendLinear = d3.legendColor()
         .shapeWidth(30)
         .scale(colorScale());
@@ -61,7 +61,7 @@ function createSizeLegend() {
     d3.select("#sizeLegend").append("svg")
         .append("g")
             .attr("class", "legendSize")
-            .attr("transform", `translate(${40}, 0)`);
+            .attr("transform", `translate(${40}, 5)`);
     let legendSize = d3.legendSize()
         .scale(sizeScale())
         .shape('circle')
@@ -90,7 +90,7 @@ function sizeScale() {
     var linearScale = d3.scaleLinear()
       .domain([d3.min(happinessData, d => d[chosenSize]),
                d3.max(happinessData, d => d[chosenSize])])
-      .range([5, 10]);
+      .range([6, 12]);
   
     return linearScale;
 };

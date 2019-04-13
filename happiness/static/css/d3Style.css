@@ -31,7 +31,7 @@
 /* font size dependent on radius, see app.js */
 .countryText {
   font-family: sans-serif;
-  font-size: 8px;
+  font-size: 9px;
   fill: #000;
   text-anchor: right;
   opacity: 0.6;

@@ -241,7 +241,7 @@ function change_control(element) {
     });
     var dataText = "nothing";
     Object.entries(dataNames).forEach(function([key, value]) {
-        if (value = data) {
+        if (value === data) {
             dataText = key;
         };
     });

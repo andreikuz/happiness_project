@@ -147,7 +147,12 @@ d3.json('/api/v1.0/happinessdata').then(data => {
             if(d === null)
               r[l] = 0;
             else
-              r[l] = countries.length - i;
+              if(l === 'Global Peace Index') {
+                r[l] = i;
+              }
+              else {
+                r[l] = countries.length - i;
+              }
           }
         });
       });

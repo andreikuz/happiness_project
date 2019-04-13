@@ -5,6 +5,8 @@ import psycopg2
 import json
 from factors import factors_data
 from script import happiness_data
+from cryptoapi import Cryptor
+import binascii 
 
 ##### Initialize Database #####
 # Create PostgreSQL connection
@@ -140,6 +142,19 @@ def happinessdata():
                         "Trust in Government": row[8]})
     # Return the happiness data in json
     return jsonify(results)
+
+# API for map_api_key: purposely misname the method to smoke screen the purpose of passing back the key
+@app.route("/api/v1.0/mapGeoData", methods=['GET', 'POST'])
+def mapGeoData():
+    """Return an encrypted map_api_key from heroku env."""
+    # Get Map API Key from heroku environment
+    map_api_key = os.environ['MAP_API_KEY']
+    # Create cryptor object to encrypt api key for tiles map API key
+    cObj = Cryptor()
+    iv, encrypted = cObj.encrypt(map_api_key, cObj.KEY)
+    results = [{"geoMapLink": binascii.b2a_base64(encrypted).rstrip().decode('utf-8'), "param": iv.decode('utf-8')}]
+    # Return encrypted key
+    return json.dumps(results)
 
 # Setup MongoDB when Flask launches
 def setup_app(app):

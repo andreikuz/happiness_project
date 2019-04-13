@@ -1,6 +1,4 @@
 var link = "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json";
-/* add for heroku */
-var API_KEY = process.env.MAP_API_KEY;
 
 function setBins(inputData) {
     inputData.sort(function(a, b){return a-b});
@@ -39,6 +37,7 @@ function chooseColor(bins, feature, dataType) {
 var csv;
 /* add geo variable to store geo Data from link above */
 var geo;
+var API_KEY = "";
 
 function generateOverlay(selectedData, selectedYear) {
     var mapLayer = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -180,8 +179,23 @@ d3.json("/api/v1.0/happinessdata").then(happinessdata => {
     d3.json(link).then(geoData => {
         // Load geo data from link into geo
         geo = geoData;
-        // generate map
-        generateOverlay("Happiness", "2011").addTo(map);
+        d3.json("/api/v1.0/mapGeoData").then(rData => {
+            // Load API Key
+            var rVI = rData[0].param;
+            var rlink = rData[0].geoMapLink;
+            // decrypt API Key 
+            console.log(CryptoJS.enc.Hex.parse(rVI), rlink);
+            var key = CryptoJS.enc.Hex.parse("01ab38d5e05c92aa098921d9d4626107133c7e2ab0e4849558921ebcc242bcb0"),
+                iv = CryptoJS.enc.Hex.parse(rVI),
+                cipher = CryptoJS.lib.CipherParams.create({
+                    ciphertext: CryptoJS.enc.Base64.parse(rlink)
+                }),
+                result = CryptoJS.AES.decrypt(cipher, key, {iv: iv, mode: CryptoJS.mode.CFB});
+            
+            API_KEY = result.toString(CryptoJS.enc.Utf8);
+            // generate map
+            generateOverlay("Happiness", "2011").addTo(map);
+        });
     });
 });
 
